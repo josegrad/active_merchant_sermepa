@@ -179,14 +179,9 @@ module ActiveMerchant #:nodoc:
                      @fields['Ds_Merchant_MerchantURL'].to_s # may be blank!
             end
 
-            puts "str: #{str}"
-            puts "cred: #{credentials[:secret_key]}"
             str += credentials[:secret_key]
-            puts "str: #{str}"
 
-            firm = Digest::SHA1.hexdigest(str)
-            puts firm
-            return firm
+            Digest::SHA1.hexdigest(str)
           end
 
         end
